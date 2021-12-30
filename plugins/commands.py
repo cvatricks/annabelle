@@ -70,18 +70,13 @@ async def start(client, message):
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-            ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('📨 Group', url='https://t.me/M2LGROUPzZ')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+        await message.reply_text(
+            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
