@@ -1,7 +1,7 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone https://github.com/cvatricks/annabelle/tree/v1.0 /annabelle
+  git clone -b v1.0 https://github.com/cvatricks/annabelle.git /annabelle
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /annabelle
