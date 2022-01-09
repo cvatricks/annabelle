@@ -31,6 +31,10 @@ auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
+# Force Subscribe
+F_CHANNEL = environ.get('F_CHANNEL', "")
+F_CHANNEL_URL = "https://t.me/{}".format(F_CHANNEL)
+
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
