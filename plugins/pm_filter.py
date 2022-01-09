@@ -104,9 +104,9 @@ async def next_page(bot, query):
             [
                 InlineKeyboardButton(
                     text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                )
+                ),
             ]
-            for file in files:
+            for file in files
         ]
     else:
         btn = [
@@ -124,7 +124,7 @@ async def next_page(bot, query):
                     callback_data=f'files_#{file.file_id}',
                 ),
             ]
-            for file in files:
+            for file in files
         ]
 
     if 0 < offset <= 10:
@@ -629,7 +629,7 @@ async def auto_filter(client, msg, spoll=False):
                     text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
-            for file in files:
+            for file in files
         ]
     else:
         btn = [
@@ -648,7 +648,7 @@ async def auto_filter(client, msg, spoll=False):
                     callback_data=f'files_#{file.file_id}',
                 ),
             ]
-            for file in files:
+            for file in files
         ]
 
     if offset != "":
