@@ -95,6 +95,11 @@ async def next_page(bot, query):
     if not files:
         return
     if SINGLE_BUTTON:
+        abtn = [
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+        ]
         btn = [
             [
                 InlineKeyboardButton(
@@ -103,6 +108,7 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+        btn = abtn.append(btn)
     else:
         btn = [
             [
