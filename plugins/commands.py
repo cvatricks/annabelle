@@ -29,6 +29,7 @@ async def start(client, message):
                     reply_to_message_id=message.message_id,
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
        )
+       return
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
