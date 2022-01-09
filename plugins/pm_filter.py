@@ -95,11 +95,11 @@ async def next_page(bot, query):
     if not files:
         return
     if SINGLE_BUTTON:
-        abtn = [
+        abtn = [[
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]
+        ]]
         btn = [
             [
                 InlineKeyboardButton(
@@ -110,11 +110,11 @@ async def next_page(bot, query):
         ]
         btn = abtn.append(btn)
     else:
-        abtn = [
+        abtn = [[
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]
+        ]]
         btn = [
             [
                 InlineKeyboardButton(
@@ -620,11 +620,11 @@ async def auto_filter(client, msg, spoll=False):
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
     if SINGLE_BUTTON:
-        abtn = [
+        abtn = [[
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]
+        ]]
         btn = [
             [
                 InlineKeyboardButton(
@@ -635,11 +635,11 @@ async def auto_filter(client, msg, spoll=False):
         ]
         btn = abtn.append(btn)
     else:
-        abtn = [
+        abtn = [[
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]
+        ]]
         btn = [
             [
                 InlineKeyboardButton(
