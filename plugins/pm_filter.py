@@ -98,13 +98,23 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ],
+            [
+                InlineKeyboardButton(
                     text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                ),
+                )
             ]
             for file in files
         ]
     else:
         btn = [
+            [
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ],
             [
                 InlineKeyboardButton(
                     text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
@@ -611,6 +621,11 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ],
+            [
+                InlineKeyboardButton(
                     text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
@@ -618,6 +633,11 @@ async def auto_filter(client, msg, spoll=False):
         ]
     else:
         btn = [
+            [
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ],
             [
                 InlineKeyboardButton(
                     text=f"{file.file_name}",
