@@ -97,10 +97,15 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
+    btns = [[
+            InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
+    ]]
+    reply_markup = InlineKeyboardMarkup(btns)
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
+        reply_markup = reply_markup,
         )
                     
 
