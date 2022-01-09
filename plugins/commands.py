@@ -27,7 +27,7 @@ async def start(client, message):
                     text="Please Join my Main Channel to use this Bot!",
                     parse_mode="html",
                     reply_to_message_id=message.message_id,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = "F_CHANNEL_URL")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
        )
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
