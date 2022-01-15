@@ -46,7 +46,7 @@ async def start(client, message):
     except pyrogram.errors.exceptions.bad_request_400.UserNotParticipant:
        await client.send_message(
                     chat_id=message.chat.id,
-                    text="<b>Please Join my Main Channel to use this Bot!</b>",
+                    text=" <b> Please Join my Main Channel to use this Bot! </b> ",
                     parse_mode="html",
                     reply_to_message_id=message.message_id,
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
@@ -106,14 +106,15 @@ async def start(client, message):
             )
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [[
-            InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
-            ],[
-            InlineKeyboardButton('📨 Group', url='https://t.me/M2LGROUPzZ')
-        ]]
+        buttons = [
+            [
+                InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
+                InlineKeyboardButton('GROUP', url='https://t.me/M2LGROUPzZ')
+            ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=script.START_TXT.format(temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
