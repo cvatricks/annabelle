@@ -95,11 +95,11 @@ async def next_page(bot, query):
     if not files:
         return
     if SINGLE_BUTTON:
-        abtn = [[
+        abtn = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]]
+        ]
         btn = [
             [
                 InlineKeyboardButton(
@@ -108,13 +108,13 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        btn = abtn.append(btn)
+        btn.insert(0, abtn)
     else:
-        abtn = [[
+        abtn = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]]
+        ]
         btn = [
             [
                 InlineKeyboardButton(
@@ -127,7 +127,7 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        btn = abtn.append(btn)
+        btn.insert(0, abtn)
 
     if 0 < offset <= 10:
         off_set = 0
@@ -620,11 +620,11 @@ async def auto_filter(client, msg, spoll=False):
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
     if SINGLE_BUTTON:
-        abtn = [[
+        abtn = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]]
+        ]
         btn = [
             [
                 InlineKeyboardButton(
@@ -633,13 +633,13 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn = abtn.append(btn)
+        btn.insert(0, abtn)
     else:
-        abtn = [[
+        abtn = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-        ]]
+        ]
         btn = [
             [
                 InlineKeyboardButton(
@@ -653,7 +653,7 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn = abtn.append(btn)
+        btn.insert(0, abtn)
 
     if offset != "":
         key = f"{message.chat.id}-{message.message_id}"
