@@ -14,6 +14,28 @@ from utils import get_size, is_subscribed, temp
 import re
 logger = logging.getLogger(__name__)
 
+@Client.on_message(filters.command("help"))
+async def help(client, message):
+    if message.chat.id in ADMINS:
+        buttons = [[
+            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
+            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            ],[
+            InlineKeyboardButton('Connection', callback_data='coct'),
+            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            ],[
+            InlineKeyboardButton('🏠 Home', callback_data='start'),
+            InlineKeyboardButton('🔮 Status', callback_data='stats')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.send_message(
+            chat_id=message.chat.id,
+            text=script.HELP_TXT.format(message.from_user.mention),
+            reply_to_message_id=message.message_id,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     try:
@@ -24,16 +46,17 @@ async def start(client, message):
     except pyrogram.errors.exceptions.bad_request_400.UserNotParticipant:
        await client.send_message(
                     chat_id=message.chat.id,
-                    text="Please Join my Main Channel to use this Bot!",
+                    text="<b>Please Join my Main Channel to use this Bot!<\b>",
                     parse_mode="html",
                     reply_to_message_id=message.message_id,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '<b>🚀 Main Channel<\b>', url = F_CHANNEL_URL)]])
        )
        return
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
+                InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
+                InlineKeyboardButton('GROUP', url='https://t.me/M2LGROUPzZ')
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -49,13 +72,12 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
-            ],[
-            InlineKeyboardButton('📨 Group', url='https://t.me/M2LGROUPzZ')
+            InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
+            InlineKeyboardButton('GROUP', url='https://t.me/M2LGROUPzZ')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=script.START_TXT.format(temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
