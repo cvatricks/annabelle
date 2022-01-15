@@ -38,6 +38,10 @@
             "description": "Username of Force Subscribe channel eg. @Channel_Name",
             "required": true
         },
+        "IMDB_POSTER": {
+            "description": "If you want IMDB results without Poster give 'false'",
+            "required": true
+        },
         "ADMINS": {
             "description": "Username or ID of Admin. Separate multiple Admins by space.",
             "required": true
