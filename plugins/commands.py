@@ -46,10 +46,10 @@ async def start(client, message):
     except pyrogram.errors.exceptions.bad_request_400.UserNotParticipant:
        await client.send_message(
                     chat_id=message.chat.id,
-                    text="<b>Please Join my Main Channel to use this Bot!<\b>",
+                    text="<b>Please Join my Main Channel to use this Bot!</b>",
                     parse_mode="html",
                     reply_to_message_id=message.message_id,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '<b>🚀 Main Channel<\b>', url = F_CHANNEL_URL)]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
        )
        return
     if message.chat.type in ['group', 'supergroup']:
