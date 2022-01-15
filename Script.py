@@ -1,5 +1,5 @@
 class script(object):
-    START_TXT = """<b>Hi, I am <a href=https://t.me/{}>{}</a>, \n\n I'm Only Work For <a href=https://t.me/M2LMOVIEZ>M➋LMOVIEZ</a>\n\n➠ Join Our Group For More Movies & Series Working 24/7<\b>"""
+    START_TXT = """<b>Hi, I am <a href=https://t.me/{}>{}</a>, \n\n I'm Only Work For <a href=https://t.me/M2LMOVIEZ>M➋LMOVIEZ</a>\n\n➠ Join Our Group For More Movies & Series Working 24/7</b>"""
     HELP_TXT = """heya {}
 I have the following features. Tap the button in which you want help."""
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
