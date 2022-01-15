@@ -136,7 +136,7 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
     btns = [[
-            InlineKeyboardButton('📍 Channel', url='https://t.me/M2LMOVIEZ')
+            InlineKeyboardButton('🚩 Join Backup Channel', url='https://t.me/+cVkk4WpQ4SpkODM1')
     ]]
     reply_markup = InlineKeyboardMarkup(btns)
     await client.send_cached_media(
