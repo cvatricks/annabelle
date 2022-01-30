@@ -671,11 +671,41 @@ async def auto_filter(client, msg, spoll=False):
        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
       else:
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            #await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            with open("pmresults.json", "r", encoding="utf8") as f:
+              b_json = json.load(f)
+            b_json["users"].append({
+               "user_id": "{}".format(message.from_user.id),
+               "photo": "{}".format(imdb.get('poster')),
+               "caption": "{}".format(cap),
+               "button": '{}'.format(btn)
+            })
+            with open("pmresults.json", "w", encoding="utf8") as outfile:
+              json.dump(b_json, outfile, ensure_ascii=False)
+            pmbtn = [
+              InlineKeyboardButton(text="How to Download 🤔", url="https://t.me/How2Downloadz/4"),
+              InlineKeyboardButton(text="D O W N L O A D", url="https://t.me/{}?start=pmresults".format(temp.B_NAME))
+            ]
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(pmbtn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            #await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            with open("pmresults.json", "r", encoding="utf8") as f:
+              b_json = json.load(f)
+            b_json["users"].append({
+               "user_id": "{}".format(message.from_user.id),
+               "photo": "{}".format(poster),
+               "caption": "{}".format(cap),
+               "button": '{}'.format(btn)
+            })
+            with open("pmresults.json", "w", encoding="utf8") as outfile:
+              json.dump(b_json, outfile, ensure_ascii=False)
+            pmbtn = [
+              InlineKeyboardButton(text="How to Download 🤔", url="https://t.me/How2Downloadz/4"),
+              InlineKeyboardButton(text="D O W N L O A D", url="https://t.me/{}?start=pmresults".format(temp.B_NAME))
+            ]
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(pmbtn))
         except Exception as e:
             logger.exception(e)
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
