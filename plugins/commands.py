@@ -52,6 +52,17 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text = '🚀 Main Channel', url = F_CHANNEL_URL)]])
        )
        return
+    if message.command[1] == "pmresults":
+        with open("pmresults.json", "r", encoding="utf8") as f:
+            b_json = json.load(f)
+        for users in b_json["users"]:
+          user_id = users.get("user_id")
+          photo = users.get("photo")
+          caption = users.get("caption")
+          button = users.get("button")
+          if int(message.from_user.id) == int(user_id):
+            await message.reply_photo(photo=photo, caption=caption, reply_markup=InlineKeyboardMarkup(button))
+
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
